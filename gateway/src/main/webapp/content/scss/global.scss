@@ -272,3 +272,108 @@ ui bootstrap tweaks
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+
+
+/* Estilos generales para la calculadora*/
+.calculator-border {
+  background-color: #58A692;; /* Color de fondo de la calculadora */
+  width: 260px;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la pantalla de la calculadora formula y resultado*/
+.calculator-display {
+  background-color: #3C5A68;
+  color: white;
+  font-size: 24px;
+  text-align: right;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  height: 80px;
+}
+
+
+  .calculator-item {
+    background-color: #3C5A68;
+    color: white;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+  }
+
+  #white{
+    background-color: #ffffff;
+    color: #3C5A68;
+  }
+  
+  #clean {
+    background-color: #4bc78b;
+    color:#3C5A68;
+  }
+
+  /* Botones de filas */
+.calculator-row-1,
+.calculator-row-2,
+.calculator-row-3,
+.calculator-row-4,
+.calculator-row-5 {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Asegura que el botón '=' ocupe más espacio */
+.calculator-row-5 .calculator-item:last-child {
+  width: 100px;
+ 
+}
+
+  .calcu{
+    background-color: #593196 ;
+    color:#ffffff;
+    width:50px;
+    height:50px;
+    margin: 5px;
+    padding:10px;
+    border-radius: 50px;
+    font-size:22px;
+    float:left;
+    box-shadow: 0px 6px 12px rgba(82, 77, 77, 0.5);
+    font-weight: bold;
+    position: fixed;
+    right: 20px;
+    border:none;
+  }
+
+  #close-calcu{
+    background-color: #a30a0a;
+    color:#ffffff ;
+    width:25px ;
+    height:25px ;
+    margin: 5px ;
+    padding:0px ;
+    border-radius: 50px ;
+    font-size:22px ;
+    float:left ;
+    box-shadow: 0px 6px 12px rgba(82, 77, 77, 0.5) ;
+    font-weight: bold ;
+    border:none ;
+  }
+
+
+  #modal-content-calcu{
+    width: 58.8%;
+  }
+
+  .dropdown-menu{
+    min-width: 45rem !important;
+    min-height: 10rem;
+  }
