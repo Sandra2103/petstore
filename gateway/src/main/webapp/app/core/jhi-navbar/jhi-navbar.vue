@@ -1,8 +1,8 @@
 <template>
-  <b-navbar data-cy="navbar" toggleable="md" type="dark" class="bg-primary">
+  <b-navbar data-cy="navbar" toggleable="md" type="dark" class="barra-menu">
     <b-navbar-brand class="logo" b-link to="/">
-      <span class="logo-img"></span>
-      <span v-text="t$('global.title')" class="navbar-title"></span> <span class="navbar-version">{{ version }}</span>
+      <span class="logo-img"></span>Títulos Electrónicos
+      <!--<span v-text="t$('global.title')" class="navbar-title"></span> <span class="navbar-version">{{ version }}</span>-->
     </b-navbar-brand>
     <b-navbar-toggle
       right
@@ -21,9 +21,69 @@
         <b-nav-item to="/" exact>
           <span>
             <font-awesome-icon icon="home" />
-            <span v-text="t$('global.menu.home')"></span>
+            <!--<span v-text="t$('global.menu.home')"></span>-->
           </span>
         </b-nav-item>
+
+        <b-nav-item-dropdown id="notifications" right>
+          <template #button-content>
+            <font-awesome-icon icon="bell" />  <!-- icono de notificación-->
+            <!--<span class="no-bold" v-text="t$('global.menu.language')"></span>-->
+          </template>
+        </b-nav-item-dropdown>
+
+        <b-nav-item-dropdown id="guide" right>
+          <template #button-content>
+            <font-awesome-icon icon="book" />  <!-- icono de notificación-->
+            <!--<span class="no-bold" v-text="t$('global.menu.language')"></span>-->
+          </template>
+        </b-nav-item-dropdown>
+
+        <b-nav-item-dropdown
+          right
+          href="javascript:void(0);"
+          id="account-menu"
+          :class="{ 'router-link-active': subIsActive('/account') }"
+          active-class="active"
+          class="pointer"
+          data-cy="accountMenu"
+        >
+          <template #button-content>
+            <span class="navbar-dropdown-menu">
+              <font-awesome-icon icon="user"/>
+              <!--<span class="no-bold" v-text="t$('global.menu.account.main')"></span>-->
+            </span>
+          </template>
+          <div id="tamaño"> <!-- para posionar los -->
+            
+
+           
+            <b-dropdown-item data-cy="logout" v-if="authenticated" @click="logout()" id="logout" active-class="active">
+            <font-awesome-icon icon="sign-out-alt" />
+            <span v-text="t$('global.menu.account.logout')"></span>
+          </b-dropdown-item>
+          <b-dropdown-item id="pass" data-cy="passwordItem" to="/account/password" v-if="authenticated" active-class="active">
+            <font-awesome-icon icon="lock" />
+            <span v-text="t$('global.menu.account.password')"></span>
+          </b-dropdown-item>
+
+          <b-dropdown-item id="ajustes" data-cy="settings" to="/account/settings" v-if="authenticated" active-class="active">
+            <font-awesome-icon icon="wrench" />
+            <span v-text="t$('global.menu.account.settings')"></span>
+          </b-dropdown-item>
+          </div>
+          
+          <b-dropdown-item data-cy="login" v-if="!authenticated" @click="openLogin()" id="login" active-class="active">
+            <font-awesome-icon icon="sign-in-alt" />
+            <span v-text="t$('global.menu.account.login')"></span>
+          </b-dropdown-item>
+          <b-dropdown-item data-cy="register" to="/register" id="register" v-if="!authenticated" active-class="active">
+            <font-awesome-icon icon="user-plus" />
+            <span v-text="t$('global.menu.account.register')"></span>
+          </b-dropdown-item>
+        </b-nav-item-dropdown>
+
+
         <b-nav-item-dropdown right id="entity-menu" v-if="authenticated" active-class="active" class="pointer" data-cy="entity">
           <template #button-content>
             <span class="navbar-dropdown-menu">
@@ -92,42 +152,7 @@
             {{ value.name }}
           </b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item-dropdown
-          right
-          href="javascript:void(0);"
-          id="account-menu"
-          :class="{ 'router-link-active': subIsActive('/account') }"
-          active-class="active"
-          class="pointer"
-          data-cy="accountMenu"
-        >
-          <template #button-content>
-            <span class="navbar-dropdown-menu">
-              <font-awesome-icon icon="user" />
-              <span class="no-bold" v-text="t$('global.menu.account.main')"></span>
-            </span>
-          </template>
-          <b-dropdown-item data-cy="settings" to="/account/settings" v-if="authenticated" active-class="active">
-            <font-awesome-icon icon="wrench" />
-            <span v-text="t$('global.menu.account.settings')"></span>
-          </b-dropdown-item>
-          <b-dropdown-item data-cy="passwordItem" to="/account/password" v-if="authenticated" active-class="active">
-            <font-awesome-icon icon="lock" />
-            <span v-text="t$('global.menu.account.password')"></span>
-          </b-dropdown-item>
-          <b-dropdown-item data-cy="logout" v-if="authenticated" @click="logout()" id="logout" active-class="active">
-            <font-awesome-icon icon="sign-out-alt" />
-            <span v-text="t$('global.menu.account.logout')"></span>
-          </b-dropdown-item>
-          <b-dropdown-item data-cy="login" v-if="!authenticated" @click="openLogin()" id="login" active-class="active">
-            <font-awesome-icon icon="sign-in-alt" />
-            <span v-text="t$('global.menu.account.login')"></span>
-          </b-dropdown-item>
-          <b-dropdown-item data-cy="register" to="/register" id="register" v-if="!authenticated" active-class="active">
-            <font-awesome-icon icon="user-plus" />
-            <span v-text="t$('global.menu.account.register')"></span>
-          </b-dropdown-item>
-        </b-nav-item-dropdown>
+        
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -182,4 +207,6 @@
   filter: drop-shadow(0 0 0.05rem white);
   margin: 0 5px;
 }
+
+
 </style>

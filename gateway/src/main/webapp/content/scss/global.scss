@@ -46,6 +46,11 @@ a:hover {
   background-color: #373a3c;
 }
 
+.svg-inline--fa { /* agregue esto para los iconos mas grandes */
+  
+  font-size: 1.5em;
+}
+
 /* ==========================================================================
 Browser Upgrade Prompt
 ========================================================================== */
@@ -368,12 +373,23 @@ ui bootstrap tweaks
     border:none ;
   }
 
-
+/* Estilos para el tamaño del modal de la calculadora*/
   #modal-content-calcu{
     width: 58.8%;
   }
 
-  .dropdown-menu{
+  .dropdown-menu{ /* Estilos para el tamaño del modal del menu de la barra de herramientas*/
     min-width: 45rem !important;
     min-height: 10rem;
+  }
+
+  .barra-menu{
+    background-color: #621132;
+  }
+
+  .profile-image { /* Estilos para  la imagen del perfil*/
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
   }

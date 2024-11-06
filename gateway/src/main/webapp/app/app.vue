@@ -2,7 +2,8 @@
   <div id="app">
     <ribbon></ribbon>
     <div id="app-header">
-      <jhi-navbar></jhi-navbar>
+      <!-- Mostrar el Navbar solo si el usuario está autenticado se agrego (v-if="username")-->
+      <jhi-navbar v-if="username"></jhi-navbar> 
     </div>
     <div class="container-fluid">
       <div class="card jh-card">

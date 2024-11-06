@@ -1,4 +1,4 @@
-import { defineComponent, provide } from 'vue';
+import { defineComponent, provide, inject } from 'vue'; //se importo el inject
 import { useI18n } from 'vue-i18n';
 import Ribbon from '@/core/ribbon/ribbon.vue';
 import JhiFooter from '@/core/jhi-footer/jhi-footer.vue';
@@ -20,8 +20,9 @@ export default defineComponent({
   },
   setup() {
     provide('alertService', useAlertService());
-
+    const username = inject('currentUsername');// se agrego esta linea
     return {
+      username, // se agrego esta linea
       t$: useI18n().t,
     };
   },
