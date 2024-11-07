@@ -8,6 +8,11 @@ const ChangePassword = () => import('@/account/change-password/change-password.v
 const Settings = () => import('@/account/settings/settings.vue');
 
 export default [
+  { //Agregue esto
+    path: '/login', //Agregue esto
+    name: 'Login', //Agregue esto
+    component: () => import('@/account/login-form/login-form.vue'), //Agregue esto
+  },  //Agregue esto
   {
     path: '/register',
     name: 'Register',

@@ -14,9 +14,11 @@
 
         <div class="alert alert-warning" v-if="!authenticated">
           <span v-text="t$('global.messages.info.authenticated.prefix')"></span>
-          <a class="alert-link" @click="openLogin()" v-text="t$('global.messages.info.authenticated.link')"></a
-          ><span v-html="t$('global.messages.info.authenticated.suffix')"></span>
+          <!--<a class="alert-link" @click="openLogin()" v-text="t$('global.messages.info.authenticated.link')"></a> -->
+          <router-link class="alert-link" to="/login" v-text="t$('global.messages.info.authenticated.link')"></router-link> <!--Agregue esta liena y comente la que esta arriba-->
+          <span v-html="t$('global.messages.info.authenticated.suffix')"></span>
         </div>
+
         <div class="alert alert-warning" v-if="!authenticated">
           <span v-text="t$('global.messages.info.register.noaccount')"></span>&nbsp;
           <router-link class="alert-link" to="/register" v-text="t$('global.messages.info.register.link')"></router-link>
