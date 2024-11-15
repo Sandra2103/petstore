@@ -1,7 +1,15 @@
 <template>
-  <div class="modal-body">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
+  <div>
+    <div class="row align-items-start">
+      <div class="col"  id="img-c1">
+      <span class="hipster img-fluid rounded"></span>
+    </div> 
+
+
+
+      <div class="col">
+        <div class="loginc">
+        <div>
         <b-alert
           show
           data-cy="loginError"
@@ -10,7 +18,6 @@
           v-html="t$('login.messages.error.authentication')"
         ></b-alert>
       </div>
-      <div class="col-md-8">
         <b-form @submit.prevent="doLogin()">
           <b-form-group :label="t$('global.form[\'username.label\']')" label-for="username">
             <b-form-input
@@ -60,6 +67,13 @@
           </b-alert>
         </div>
       </div>
+    </div>
+
+
+    
+   
+    
+
     </div>
   </div>
 </template>
